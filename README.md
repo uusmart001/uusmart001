@@ -1,42 +1,32 @@
-# my-vuepress-site
+# NcatBotDocs
 
-The Site is generated using [vuepress](https://vuepress.vuejs.org/) and [vuepress-theme-plume](https://github.com/pengzhanbo/vuepress-theme-plume)
+本项目是 [NcatBot](https://github.com/ncatbot/ncatbot) 的文档项目, 用于文档的编写和发布.
 
-## Install
+## Contribution
 
-```sh
-npm i
-```
+如果只做简单的文本修改, 可以只修改对应的 .md 文件并 PR, 如果修改比较繁琐, 请参考以下步骤:
 
-## Usage
+1. 阅读 [VuePress 文档](https://v2.vuepress.vuejs.org/zh/) 和 [Plume 主题文档](https://theme-plume.vuejs.press/) 了解 VuePress 的使用方法.
 
-```sh
-# start dev server
-npm run docs:dev
-# build for production
-npm run docs:build
-# preview production build in local
-npm run docs:preview
-# update vuepress and theme
-npm run vp-update
-```
+2. 使用 1. 中学到的知识对文档进行修改.
 
-## Deploy to GitHub Pages
+3. 预览修改后的文档 
 
-The plume theme has been created with GitHub Actions: `.github/workflows/docs-deploy.yml`. You also need to make the following settings in the GitHub repository:
+    1. 安装 node.js (推荐 node.js >= 18.19.0)
 
-- [ ] `settings > Actions > General`, Scroll to the bottom of the page, under `Workflow permissions`, check `Read and write permissions`, and click the save button.
+    2. 更新 npm 并安装模块依赖
 
-- [ ] `settings > Pages`, In `Build and deployment`, select `Deploy from a branch` for `Source`, choose `gh-pages` for `Branch`, and click the save button.
-  (The `gh-pages` branch may not exist upon first creation. You can complete the above setup first, push the code to the main branch, wait for `github actions` to finish, and then proceed with the setup.)
+        ```shell
+        npm install -g npm@latest
+        ```
 
-- [ ] Modify the `base` option in `docs/.vuepress/config.ts`:
-  - If you are planning to deploy to `https://<USERNAME>.github.io/`, you can skip this step as `base` defaults to `"/"`.
-  - If you are planning to deploy to `https://<USERNAME>.github.io/<REPO>/`, meaning your repository URL is `https://github.com/<USERNAME>/<REPO>`, set `base` to `"/<REPO>/"`.
+    3. 本地预览
 
-To customize a domain name, please refer to [Github Pages](https://docs.github.com/zh/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)
+    **重启终端**, 切换到本项目目录下, 执行:
 
-## Documents
+    ```shell
+    npm install
+    npm run docs:dev
+    ```
 
-- [vuepress](https://vuepress.vuejs.org/)
-- [vuepress-theme-plume](https://theme-plume.vuejs.press/)
+4. 确认无误后提交 PR.

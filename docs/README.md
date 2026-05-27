@@ -1,23 +1,36 @@
 ---
-pageLayout: home
-externalLinkIcon: false
+home: true
+title: NcatBot 文档
+icon: solar:cat-linear
 config:
-  -
-    type: hero
+  - type: hero
+    background: tint-plate
+    tintPlate:
+      r:
+        value: 219
+        offset: 6
+      g:
+        value: 215
+        offset: 30
+      b:
+        value: 219
+        offset: 19
     full: true
-    forceDark: true
-    effect: lightning
     hero:
-      name: Theme Plume
-      tagline: VuePress Next Theme
-      text: 一个简约的，功能丰富的 vuepress 文档&博客 主题
+      name: NcatBot
+      tagline: Python SDK Framework
+      text: 基于 Napcat 的 Python SDK
       actions:
-        -
-          theme: brand
-          text: 博客
-          link: /blog/
-        -
-          theme: alt
-          text: Github →
-          link: https://github.com/pengzhanbo/vuepress-theme-plume
+        - theme: brand
+          text: 快速开始
+          link: /guide/695ruqzj/
+          suffixIcon: material-symbols:start-rounded
+        - theme: alt
+          text: NcatBot
+          link: https://github.com/ncatbot/NcatBot
+          icon: mdi:github
+        - theme: alt
+          text: NcatBotDocs
+          link: https://github.com/huan-yp/NcatBotDocs
+          icon: mdi:github
 ---

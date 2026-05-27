@@ -1,81 +1,38 @@
-/**
- * 查看以下文档了解主题配置
- * - @see https://theme-plume.vuejs.press/config/intro/ 配置说明
- * - @see https://theme-plume.vuejs.press/config/theme/ 主题配置项
- *
- * 请注意，对此文件的修改不会重启 vuepress 服务，而是通过热更新的方式生效
- * 但同时部分配置项不支持热更新，请查看文档说明
- * 对于不支持热更新的配置项，请在 `.vuepress/config.js` 文件中配置
- *
- * 特别的，请不要在两个配置文件中重复配置相同的项，当前文件的配置项会覆盖 `.vuepress/config.js` 文件中的配置
- */
-
 import { defineThemeConfig } from 'vuepress-theme-plume'
-import navbar from './navbar'
-import collections from './collections'
+import notes from './notes/index.js'
 
-/**
- * @see https://theme-plume.vuejs.press/config/theme/
- */
 export default defineThemeConfig({
-  logo: 'https://theme-plume.vuejs.press/plume.png',
-
-  appearance: true,  // 配置 深色模式
-
+  lang: 'zh-CN',
+  blog: false,
+  logo: '/images/logo.png',
+  plot: true,
   social: [
-    { icon: 'github', link: '/' },
+    { icon: 'github', link: 'https://github.com/ncatbot/ncatbot' },
+    { icon: 'qq', link: 'http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Vu7KB9gEv9TftvJLYcl846CTqsLUc6Ey&authKey=8JBJhlZro%2B1%2FakeBZ3yJMVeHzlsFYTMHU0RJK%2FpMBmkpZSH7w2CbXU6M2X66PTCQ&noverify=0&group_code=201487478' },
+    { icon: { svg: '<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><path fill="currentColor" d="M15.555 53.125h24.89c4.852 0 7.266-2.461 7.266-7.336V24.508H30.742c-3 0-4.406-1.43-4.406-4.43V2.875H15.555c-4.828 0-7.266 2.484-7.266 7.36v35.554c0 4.898 2.438 7.336 7.266 7.336m15.258-31.828h16.64c-.164-.961-.844-1.899-1.945-3.047L32.57 5.102c-1.078-1.125-2.062-1.805-3.047-1.97v16.9c0 .843.446 1.265 1.29 1.265"/></svg>', name :'docs'}, link: 'https://github.com/huan-yp/NcatBotDocs' },
   ],
-  // navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
-  // aside: true, // 页内侧边栏， 默认显示在右侧
-  // outline: [2, 3], // 页内大纲， 默认显示 h2, h3
-
-  /**
-   * 文章版权信息
-   * @see https://theme-plume.vuejs.press/guide/features/copyright/
-   */
-  // copyright: true,
-
-  // prevPage: true,   // 是否启用上一页链接
-  // nextPage: true,   // 是否启用下一页链接
-  // createTime: true, // 是否显示文章创建时间
-
-  /* 站点页脚 */
-  // footer: {
-  //   message: 'Power by <a target="_blank" href="https://v2.vuepress.vuejs.org/">VuePress</a> & <a target="_blank" href="https://theme-plume.vuejs.press">vuepress-theme-plume</a>',
-  //   copyright: '',
-  // },
-
-  /**
-   * @see https://theme-plume.vuejs.press/config/theme/#profile
-   */
-  profile: {
-    avatar: 'https://theme-plume.vuejs.press/plume.png',
-    name: 'My Vuepress Site',
-    description: '',
-    // circle: true,
-    // location: '',
-    // organization: '',
+  navbarSocialInclude: ['github', 'qq', 'docs'],
+  navbar: [
+    { text: '首页', link: '/' },
+    { text: '使用指南', link: '/guide/' },
+    { text: '示例插件', link: '/examples/' },
+    { text: 'API 参考', link: '/reference/' },
+    { text: '案例展示', link: '/showcase/' },
+    { text: '贡献指南', link: '/contributing/' },
+  ],
+  sidebar: 'auto',
+  notes,
+  changelog: true,
+  contributors: true,
+  plugins: {
+    git: process.env.NODE_ENV === 'production',
+    markdownPower: {
+      demo: true, // 启用新的代码演示功能
+    },
+    markdownEnhance: {
+      demo: false, // 禁用旧的代码演示功能
+    },
   },
-
-  navbar,
-  collections,
-
-  /**
-   * 公告板
-   * @see https://theme-plume.vuejs.press/guide/features/bulletin/
-   */
-  // bulletin: {
-  //   layout: 'top-right',
-  //   contentType: 'markdown',
-  //   title: '公告板标题',
-  //   content: '公告板内容',
-  // },
-
-  /* 过渡动画 @see https://theme-plume.vuejs.press/config/theme/#transition */
-  // transition: {
-  //   page: true,        // 启用 页面间跳转过渡动画
-  //   postList: true,    // 启用 博客文章列表过渡动画
-  //   appearance: 'fade',  // 启用 深色模式切换过渡动画, 或配置过渡动画类型
-  // },
-
+  footer: { message: "", copyright: "© 2025-2026 wanbing" },
+  copyright: 'CC-BY-4.0',
 })
